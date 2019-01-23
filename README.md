@@ -28,6 +28,8 @@
 + [pc端](https://github.com/bigbigbigbear/some-practical-knowledge-for-frontend-develop/blob/master/frontend/pc/application.md)
 + [工具](https://github.com/bigbigbigbear/some-practical-knowledge-for-frontend-develop/blob/master/frontend/tools/application.md)
    * [markdown](https://github.com/bigbigbigbear/some-practical-knowledge-for-frontend-develop/blob/master/frontend/tools/markdown.md)
+
+   * [IDE快捷键](https://github.com/bigbigbigbear/some-practical-knowledge-for-frontend-develop/blob/master/frontend/tools/IDE.md)
 + [性能优化](https://github.com/bigbigbigbear/some-practical-knowledge-for-frontend-develop/blob/master/frontend/性能优化/application.md)
 
 >大全栈知识目录
