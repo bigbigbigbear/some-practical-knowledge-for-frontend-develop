@@ -61,27 +61,27 @@
 
    + mvn test
 
-###java api学习
+### java api学习
 
    > java.io.Serializable
 
    ```
-   // Serializable 标识此接口的实现类可以被序列化和反序列化，implements声明自己使用一个或者多个接口
-   public class A implements Serializable {
-       // serialVersionUID 是很重要的字段，因为java的序列化机制是通过在运行时判断类的serialVersionUID，来验证版本一致性的。在进行反序列化时，JVM 会把传来的字节流中的serialVersionUID与本地相应实体（类）的serialVersionUID进行比较，如果相同就认为是一致的，可以进行反序列化，否则就会出现序列化版本不一致的异常。
+      // Serializable 标识此接口的实现类可以被序列化和反序列化，implements声明自己使用一个或者多个接口
+      public class A implements Serializable {
+         // serialVersionUID 是很重要的字段，因为java的序列化机制是通过在运行时判断类的serialVersionUID，来验证版本一致性的。在进行反序列化时，JVM 会把传来的字节流中的serialVersionUID与本地相应实体（类）的serialVersionUID进行比较，如果相同就认为是一致的，可以进行反序列化，否则就会出现序列化版本不一致的异常。
 
-       // 一般来说，定义serialVersionUID的方式有两种，分别为：
-          采用默认的1L，具体为private static final long serialVersionUID = 1L;
-          根据类名、接口名、成员方法及属性等来生成一个64位的哈希字段，例如 private static final long serialVersionUID = XXXL;
+         // 一般来说，定义serialVersionUID的方式有两种，分别为：
+            采用默认的1L，具体为private static final long serialVersionUID = 1L;
+            根据类名、接口名、成员方法及属性等来生成一个64位的哈希字段，例如 private static final long serialVersionUID = XXXL;
 
-       // 而 Java 类进行序列化也两个主要目的，分别为：
-          把对象的字节序列永久地保存到硬盘上，通常存放在一个文件中；
-          在网络上传送对象的字节序列。
+         // 而 Java 类进行序列化也两个主要目的，分别为：
+            把对象的字节序列永久地保存到硬盘上，通常存放在一个文件中；
+            在网络上传送对象的字节序列。
 
-       private static final long serialVersionUID = 1L;
-   }
+         private static final long serialVersionUID = 1L;
+      }
 
-   IDEA设置自动生成serialVersionUID：
-   Preferences -> Inspections -> Serialization issues -> Serialization class without 'serialVersionUID' 打上勾，点击类名，alt + Enter生成
+      IDEA设置自动生成serialVersionUID：
+      Preferences -> Inspections -> Serialization issues -> Serialization class without 'serialVersionUID' 打上勾，点击类名，alt + Enter生成
    ```
 
