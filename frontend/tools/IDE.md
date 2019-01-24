@@ -7,3 +7,4 @@
 ### VSCode
 
 + 多选 ctrl + D
++ 选中所有当前选中的匹配项 shift + ctrl + L
