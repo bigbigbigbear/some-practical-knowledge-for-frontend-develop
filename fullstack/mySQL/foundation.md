@@ -5,28 +5,41 @@
 * DQL(数据查询语言)
    >
    > SELECT <字段名表>
+
    > FROM <表或视图名>
+
    > WHERE <查询条件>
+
    >
 * DML(数据操纵语言)
    >
    > 插入：INSERT
+
    > 更新：UPDATE
+
    > 删除：DELETE
+
    >
 * DDL(数据定义语言)
    >
    > 用来创建数据库中各种对象---表、视图、索引、同义词、聚簇等
+
    > CREATE TABLE/VIEW/INDEX/SYN/CLUSTER
+
    > DDL操作是隐性提交的，不能rollback
+
    >
 * DCL(数据控制语言)
 
    用来授予或者回收访问数据库的某种特权，并控制数据库操纵事物发生的时间及效果，对数据库实行监视等
    >
+
    > GRANT：授权
+
    > ROLLBACK：回滚
+
    > COMMIT：提交
+
    >
 
 ### mySQL数据类型
@@ -181,22 +194,31 @@
 ### mySQL命令行
 
    > 进入： cd /usr/local/mysql/bin
+
    > 登录： ./mysql -uroot -pxxx
+
    > 查看数据库： show databases;
+
    > 连接数据库： use db_name;
+
    > 查看数据表： show tables;
+
    > 查询： select * from table_name where xxx and xxx;
+
    > 当前选择的数据库： select database();
+
    > 查询mysql版本： select version();
+
    > 当前时间： select now();
+
    > 打印年月日： select day/month/year(current_date);
+
    > 查看表结构： desc <table_name>;
+
    > 查看所有连接的详细情况： show full processlist;
+
    > 查看状态： show status;
+
    > 复制表结构： create table table2 like table1;
+
    > 复制数据： insert into table1 select * from table;
-
-
-
-
-
