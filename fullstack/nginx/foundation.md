@@ -1,6 +1,6 @@
 ## nginx学习笔记
 
-### nginx常用命令
+### Windows环境下nginx常用命令
    ```
    启动：start nginx
    版本：nginx -V

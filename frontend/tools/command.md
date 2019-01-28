@@ -15,6 +15,9 @@
    删除文件： del file_name
    测试网络： ping ip
    查看命令： help
+   任务列表： tasklist
+   查看端口占用： netstat -ano | findstr "80"
+   查看pid对应进程名称： tasklist |findstr "pid号"
    ```
 
 ### Git Bash
@@ -22,3 +25,6 @@
 
 
 ### XShell
+   ```
+   查看端口占用： netstat -anop |grep 80
+   ```
