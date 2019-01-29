@@ -27,4 +27,10 @@
 ### XShell
    ```
    查看端口占用： netstat -anop |grep 80
+   合并多个sql脚本文件内容到新脚本文件： cat *.sql >> update.sql
+   tar压缩文件gz： tar -cvzf filename filedir
+   tar查看文件gz： tar -tvzf filename filedir
+   tar解压文件gz： tar -xvzf filename filedir
+   unzip解压zip文件： unzip file.zip
+   zip压缩文件： zip -r file.zip ./*
    ```
