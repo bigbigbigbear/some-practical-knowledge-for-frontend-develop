@@ -18,6 +18,7 @@
    任务列表： tasklist
    查看端口占用： netstat -ano | findstr "80"
    查看pid对应进程名称： tasklist |findstr "pid号"
+   终止进程：taskkill /pid "pid号" /f
    ```
 
 ### Git Bash
@@ -33,4 +34,5 @@
    tar解压文件gz： tar -xvzf filename filedir
    unzip解压zip文件： unzip file.zip
    zip压缩文件： zip -r file.zip ./*
+   查看某程序历史命令记录： history |grep redis
    ```

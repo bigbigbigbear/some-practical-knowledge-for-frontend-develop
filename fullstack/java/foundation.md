@@ -61,6 +61,18 @@
 
    + mvn test
 
+### jdk
+
+   ```
+      JDK 安装目录下具有多个子目录和一些网页文件，其中重要目录和文件的说明如下:
+      bin：提供 JDK 工具程序，包括 javac、java、javadoc、appletviewer 等可执行程序。
+      include：存放用于本地访问的文件。
+      jre：存放 Java 运行环境文件。
+      lib：存放 Java 的类库文件，工具程序实际上使用的是 Java 类库。JDK 中的工具程序，大多也由 Java 编写而成。
+      src.zip：Java 提供的 API 类的源代码压缩文件。如果需要查看 API 的某些功能是如何实现的，可以査看这个文件中的源代码内容。
+   ```
+
+
 ### java api学习
 
    > java.io.Serializable

@@ -17,8 +17,9 @@
    重启： /usr/local/sbin/nginx -s reload
    ```
 
-### redis常用命令
+### tomcat
    ```
-   启动：./redis-server /path/to/redis.conf
-   关闭：redis-cli -h 127.0.0.1 -p 6379 shutdown
+   设置文件读写执行权限： sudo chmod 755 Library/Tomcat/bin/*.sh
+   启动：Library/Tomcat8/bin/startup.sh
+   停止：Library/Tomcat8/bin/shutdown.sh
    ```

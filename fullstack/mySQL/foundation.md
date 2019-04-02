@@ -215,10 +215,28 @@
 
    > 查看表结构： desc <table_name>;
 
+   > 查看运行的线程： show processlist;
+
    > 查看所有连接的详细情况： show full processlist;
 
    > 查看状态： show status;
 
+   > 获取全局变量： show global variables;
+
+   > 获取timeout变量： show global variables like "%timeout%";
+
+   > 获取meta信息，线程等： select * from information_schema.innodb_trx;
+
    > 复制表结构： create table table2 like table1;
 
    > 复制数据： insert into table1 select * from table;
+
+   > 启动： service mysqld start
+
+   > 重启： service mysqld restart
+
+   > 停止： service mysqld stop
+
+   >
+
+
