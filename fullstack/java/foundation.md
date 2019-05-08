@@ -97,3 +97,18 @@
       Preferences -> Inspections -> Serialization issues -> Serialization class without 'serialVersionUID' 打上勾，点击类名，alt + Enter生成
    ```
 
+### java知识积累
+
+   ```
+      时间格式化注解:
+      @DateTimeFormat(pattern="yyyy-MM-ddHH:mm:ss")
+      @JsonFormat(pattern="yyyy-MM-ddHH:mm:ss",timezone="GMT+8")
+   ```
+
+### java数据类型转换
+
+   ```
+      **integer转long**
+      int a;
+      Long b = a.longValue();
+   ```

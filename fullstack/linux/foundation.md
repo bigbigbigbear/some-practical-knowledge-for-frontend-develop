@@ -10,6 +10,8 @@
    * 查看某程序状态： ps -aux | grep java
    * 查看端口占用： netstat -anp | grep 8080
    * 杀死进程： kill -9 pid
+   * 改为读写权限： sudo chmod 666 file
+   * 改为只读权限： sudo chmod 664 file
 
 ### redis常用命令
    ```

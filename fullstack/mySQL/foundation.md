@@ -209,6 +209,10 @@
 
    > 查询mysql版本： select version();
 
+   > 获取全局变量： select @@global;
+
+   > 获取会话变量： select @@session;
+
    > 当前时间： select now();
 
    > 打印年月日： select day/month/year(current_date);
@@ -237,6 +241,21 @@
 
    > 停止： service mysqld stop
 
-   >
+### mySQL设置global变量和session变量
+
+   ```
+   1、修改my.ini配置文件，在[mysqld]栈下添加全局变量，
+   ```
 
 
+### mac下mysql操作
+   ```
+   启动MySQL服务
+   sudo /usr/local/MySQL/support-files/mysql.server start
+
+   停止MySQL服务
+   sudo /usr/local/mysql/support-files/mysql.server stop
+
+   重启MySQL服务
+   sudo /usr/local/mysql/support-files/mysql.server restart
+   ```
