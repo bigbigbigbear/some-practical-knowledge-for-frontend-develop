@@ -111,4 +111,17 @@
       **integer转long**
       int a;
       Long b = a.longValue();
+
+      /**
+      * String字符串转成List<Long>数据格式
+      * String str = "1,2,3,4,5,6" -> List<Long> listLong [1,2,3,4,5,6];
+      *
+      * @param strArr
+      * @return
+      */
+      private List<Long> stringToLongList(String strArr) {
+         return Arrays.stream(strArr.split(","))
+                        .map(s -> Long.parseLong(s.trim()))
+                        .collect(Collectors.toList());
+      }
    ```
