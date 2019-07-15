@@ -19,3 +19,8 @@
    关闭：redis-cli -h 127.0.0.1 -p 6379 shutdown
    查看redis查询历史记录： history |grep redis
    ```
+
+### 批量查找替换
+   ```
+   sed -i “s/查找字段/替换字段/g” grep 查找字段 -rl 路径
+   ```
