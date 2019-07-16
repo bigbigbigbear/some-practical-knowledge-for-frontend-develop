@@ -12,6 +12,7 @@
    * 杀死进程： kill -9 pid
    * 改为读写权限： sudo chmod 666 file
    * 改为只读权限： sudo chmod 664 file
+   * 当前目录文件大小： du --max-depth=1 -h
 
 ### redis常用命令
    ```
@@ -23,4 +24,5 @@
 ### 批量查找替换
    ```
    sed -i “s/查找字段/替换字段/g” grep 查找字段 -rl 路径
+   sed -i “s/oldstring/newstring/g” 1.txt    //当前文件查找替换
    ```

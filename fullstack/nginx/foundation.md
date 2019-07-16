@@ -12,6 +12,7 @@
 
 ### linux环境下nginx常用命令
    ```
+   启动：./nginx
    启动：nginx -c /usr/local/nginx/conf/nginx.conf
    停止： ps -ef | grep nginx 找到master里主进程号， kill -QUIT PID(从容停止), kill -9 pid(强制停止)
    重启： /usr/local/sbin/nginx -s reload
