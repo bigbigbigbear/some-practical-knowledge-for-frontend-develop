@@ -260,3 +260,11 @@
    重启MySQL服务
    sudo /usr/local/mysql/support-files/mysql.server restart
    ```
+
+### mysql导出
+
+   ```
+   导出所有表结构：mysqldump -h10.128.0.34 -ubos -pBos@2018 -d -P3308 --all-databases > /home/archforce/mysql/all.sql
+   导出所有表数据：mysqldump -h10.128.0.34 -ubos -pBos@2018 -t -P3308 --all-databases > /home/archforce/mysql/all.sql
+   导出所有表结构及数据：mysqldump -h10.128.0.34 -ubos -pBos@2018 -P3308 --all-databases > /home/archforce/mysql/all.sql
+   ```
