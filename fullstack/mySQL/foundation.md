@@ -268,3 +268,11 @@
    导出所有表数据：mysqldump -h10.128.0.34 -ubos -pBos@2018 -t -P3308 --all-databases > /home/archforce/mysql/all.sql
    导出所有表结构及数据：mysqldump -h10.128.0.34 -ubos -pBos@2018 -P3308 --all-databases > /home/archforce/mysql/all.sql
    ```
+
+### mysql 授权
+   ```
+   bear使用mypassword从任何主机连接到mysql服务器，且只能操作testdb库
+   GRANT ALL PRIVILEGES ON testdb.* TO 'bear'@'%' IDENTIFIED BY 'mypassword' WITH GRANT OPTION; 
+   FLUSH PRIVILEGES; 
+   flush privileges 命令本质上的作用是将当前user和privilige表中的用户信息/权限设置从mysql库(MySQL数据库的内置库)中提取到内存里。MySQL用户数据和权限有修改后，希望在"不重启MySQL服务"的情况下直接生效，那么就需要执行这个命令。通常是在修改ROOT帐号的设置后，怕重启后无法再登录进来，那么直接flush之后就可以看权限设置是否生效。而不必冒太大风险。
+   ```
