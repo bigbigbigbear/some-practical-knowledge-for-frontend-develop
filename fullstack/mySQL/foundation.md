@@ -276,3 +276,34 @@
    FLUSH PRIVILEGES; 
    flush privileges 命令本质上的作用是将当前user和privilige表中的用户信息/权限设置从mysql库(MySQL数据库的内置库)中提取到内存里。MySQL用户数据和权限有修改后，希望在"不重启MySQL服务"的情况下直接生效，那么就需要执行这个命令。通常是在修改ROOT帐号的设置后，怕重启后无法再登录进来，那么直接flush之后就可以看权限设置是否生效。而不必冒太大风险。
    ```
+
+### mysql查看数据量最大的表
+   ```
+   select table_name,table_rows from information_schema.tables order by table_rows desc limit 10;
+   ```
+
+### mysql事务
+
+   ```
+   事务定义：一个最小的不可再分的工作单元；通常一个事务对应一个完整的业务。在事物进行过程中，未结束之前，DML语句是不会更改底层数据，只是将历史操作记录一下，在内存中完成记录。只有在事物结束的时候，而且是成功的结束的时候，才会修改底层硬盘文件中的数据
+   事务特征(ACID)：原子性(A)：事务是最小单位，不可再分
+                  一致性(C)：事务要求所有的DML语句操作的时候，必须保证同时成功或者同时失败
+                  事务A和事务B之间具有隔离性
+   事务术语：开启事务：Start Transaction
+            事务结束：End Transaction
+            提交事务：Commit Transaction
+            回滚事务：Rollback Transaction
+   事务开启：
+            - 任何一条DML语句(insert、update、delete)执行，标志事务的开启
+   事务结束：
+            -  提交：成功的结束，将所有的DML语句操作历史记录和底层硬盘数据来一次同步
+            -  回滚：失败的结束，将所有的DML语句操作历史记录全部清空
+   事务隔离性的隔离级别：
+            读未提交：read uncommitted
+            读已提交：read committed(Oracle)
+            可重复读：repeatable read(mysql)
+            串行化：serializable
+   设置事务隔离级别：SET [GLOBAL | SESSION] TRANSACTION ISOLATION LEVEL <isolation-level>;
+            其中<isolation-level>取值是READ UNCOMMITTED、READ COMMITTED、REPEATABLE READ、SERIALIZABLE
+   
+   ```
