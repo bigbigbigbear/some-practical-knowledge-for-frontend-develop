@@ -14,6 +14,10 @@
    * 改为读写权限： sudo chmod 666 file
    * 改为只读权限： sudo chmod 664 file
    * 当前目录文件大小： du --max-depth=1 -h
+   * 按文件名查找文件： find ./ -name '*bear*'
+   * 查找文件： find ./ -name '*bear*' -depth -print 首先查找当前目录中的文件，然后再在其子目录中查找
+   * 程序名搜索： whereis java
+   * 查看系统命令是否存在及位置： which nginx
 
 ### redis常用命令
    ```
