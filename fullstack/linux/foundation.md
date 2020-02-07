@@ -9,11 +9,16 @@
    * 查看某个程序进程： ps -ef | grep java
    * 查看某程序状态： ps -aux | grep java
    * 查看端口占用： netstat -anp | grep 8080
+   * 查看端口所在进程：lsof -i:port
    * 杀死进程： kill -9 pid
    * 改为读写权限： sudo chmod 666 file
    * 改为只读权限： sudo chmod 664 file
    * 当前目录文件大小： du --max-depth=1 -h
    * 内存使用: free -m
+   * 按文件名查找文件： find ./ -name '*bear*'
+   * 查找文件： find ./ -name '*bear*' -depth -print 首先查找当前目录中的文件，然后再在其子目录中查找
+   * 程序名搜索： whereis java
+   * 查看系统命令是否存在及位置： which nginx
 
 ### redis常用命令
    ```
