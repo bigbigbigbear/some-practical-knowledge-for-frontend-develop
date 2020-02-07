@@ -13,6 +13,7 @@
    * 改为读写权限： sudo chmod 666 file
    * 改为只读权限： sudo chmod 664 file
    * 当前目录文件大小： du --max-depth=1 -h
+   * 内存使用: free -m
 
 ### redis常用命令
    ```
