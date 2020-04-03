@@ -307,3 +307,20 @@
             其中<isolation-level>取值是READ UNCOMMITTED、READ COMMITTED、REPEATABLE READ、SERIALIZABLE
    
    ```
+
+### mysql 查询流程
+   ```
+   1、客户端与连接器建立连接、获取权限   mysql -h$host -P$port -u$user -p
+
+   2、查询缓存：命中则取缓存，没有则执行后的，执行完后缓存结果   MySQL 8.0删除此功能
+
+   3、分析器：词法分析(识别关键字)===>语法分析
+
+   4、优化器：多个索引时决定使用哪个索引，多表关联时决定各个表连接顺序
+
+   5、执行器：先判断一下你对这个表 T 有没有执行查询的权限，如果没有，就会返回没有权限的错误，如果有就继续执行，根据表引擎定义，执行器根据条件返回对应结果
+   ```
+
+### mysql创建用户及授权
+   1、创建：CREATE USER 'username'@'host' IDENTIFIED BY 'password';
+   2、授权：GRANT privileges ON databasename.tablename TO 'username'@'host';

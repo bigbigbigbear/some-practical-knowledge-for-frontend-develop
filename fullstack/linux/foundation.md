@@ -18,6 +18,8 @@
    * 查找文件： find ./ -name '*bear*' -depth -print 首先查找当前目录中的文件，然后再在其子目录中查找
    * 程序名搜索： whereis java
    * 查看系统命令是否存在及位置： which nginx
+   * 查看unix版本：uname -r
+   * 查看内存：free -mh
 
 ### redis常用命令
    ```
@@ -31,3 +33,4 @@
    sed -i “s/查找字段/替换字段/g” grep 查找字段 -rl 路径
    sed -i “s/oldstring/newstring/g” 1.txt    //当前文件查找替换
    ```
+
