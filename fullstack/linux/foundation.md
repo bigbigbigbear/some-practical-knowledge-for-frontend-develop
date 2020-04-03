@@ -14,6 +14,7 @@
    * 改为读写权限： sudo chmod 666 file
    * 改为只读权限： sudo chmod 664 file
    * 当前目录文件大小： du --max-depth=1 -h
+   * 内存使用: free -m
    * 按文件名查找文件： find ./ -name '*bear*'
    * 查找文件： find ./ -name '*bear*' -depth -print 首先查找当前目录中的文件，然后再在其子目录中查找
    * 程序名搜索： whereis java
@@ -33,4 +34,3 @@
    sed -i “s/查找字段/替换字段/g” grep 查找字段 -rl 路径
    sed -i “s/oldstring/newstring/g” 1.txt    //当前文件查找替换
    ```
-
