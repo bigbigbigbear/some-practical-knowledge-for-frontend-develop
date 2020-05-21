@@ -83,3 +83,29 @@
 
     1、去掉联表查询为null的数据
     SELECT g.name,g.type_id,t.type_id,t.type_name FROM game g LEFT JOIN game_type t ON t.type_id=g.type_id where not ISNULL(t.type_name);
+    2、数据库备份：mysql -e "show databases;" -uroot -p| grep -Ev "Database|information_schema|mysql|test" | xargs mysqldump -uroot -p --databases > /data/mysql_bak.sql
+    3、数据库数据量大小：
+    ```
+    select table_schema,table_name,table_rows from information_schema.tables where table_schema not in ('performance_schema','mysql','information_schema','sys') order by table_rows desc;
+    ```
+
+    4、导出
+    mysqldump导出所有库 ：mysqldump -uroot -ppassword -A > mysql_dump.sql
+    导出所有+忽略特殊库：mysql -e "show databases;" -uroot -ppassword | grep -Ev "db1|db2|test" | xargs mysqldump -uroot -ppassword --databases > mysql_dump.sql
+    正则匹配导出特殊库：mysql -e "show databases;" -uroot -ppassword | grep -E "db.*|test" | xargs mysqldump -uroot -ppassword --databases > mysql_dump.sql
+    附加选项：
+        -c 完整sql语句
+        --skip-add-locks 不锁表
+        -d 导出表结构不导出数据
+        -t 导出数据不导出表结构
+        -R 导出存储过程及自定义函数
+
+    5、用法
+    手机号隐藏：concat(left(phone,3),'****',right(phone,4)) as fmt_phone
+    邮箱隐藏：replace(email,substr(email, 4, instr(email,'@')-4),'****') as fmt_email
+
+
+    INSTR(STR,SUBSTR) 在一个字符串(STR)中搜索指定的字符(SUBSTR),返回发现指定的字符的位置(INDEX); 
+    STR 被搜索的字符串 
+    SUBSTR 希望搜索的字符串 
+    结论：在字符串STR里面,字符串SUBSTR出现的第一个位置(INDEX)，INDEX是从1开始计算，如果没有找到就直接返回0，没有返回负数的情况。

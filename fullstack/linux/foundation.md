@@ -21,6 +21,8 @@
    * 查看系统命令是否存在及位置： which nginx
    * 查看unix版本：uname -r
    * 查看内存：free -mh
+   * 拷贝远程文件到当前目录：scp remote@www.abc.com:/usr/local/sin.sh /home/administrator/
+   * 拷贝远程文件夹到当前目录：scp -r remote@www.abc.com:/usr/local/sin.sh /home/administrator/
 
 ### redis常用命令
    ```

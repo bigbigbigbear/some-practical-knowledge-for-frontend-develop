@@ -10,3 +10,4 @@
 
 + 多选 ctrl + D
 + 选中所有当前选中的匹配项 shift + ctrl + L
++ 使用bash："terminal.integrated.shell.windows": "C:\\Program Files\\git\\bin\\bash.exe"
