@@ -9,11 +9,13 @@
    * 查看某个程序进程： ps -ef | grep java
    * 查看某程序状态： ps -aux | grep java
    * 查看端口占用： netstat -anp | grep 8080
+   * 根据进程pid查端口：netstat -nap | grep pid
    * 查看端口所在进程：lsof -i:port
    * 杀死进程： kill -9 pid
    * 改为读写权限： sudo chmod 666 file
    * 改为只读权限： sudo chmod 664 file
-   * 当前目录文件大小： du --max-depth=1 -h
+   * 当前目录文件夹大小： du --max-depth=1 -h
+   * 当前目录文件大小： du -sh ./*
    * 内存使用: free -m
    * 按文件名查找文件： find ./ -name '*bear*'
    * 查找文件： find ./ -name '*bear*' -depth -print 首先查找当前目录中的文件，然后再在其子目录中查找
@@ -28,6 +30,7 @@
    ```
    启动：./redis-server /path/to/redis.conf
    关闭：redis-cli -h 127.0.0.1 -p 6379 shutdown
+   登录：./redis-cli -h 127.0.0.1 -p 6379 -a myPassword
    查看redis查询历史记录： history |grep redis
    ```
 

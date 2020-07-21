@@ -109,3 +109,8 @@
     STR 被搜索的字符串 
     SUBSTR 希望搜索的字符串 
     结论：在字符串STR里面,字符串SUBSTR出现的第一个位置(INDEX)，INDEX是从1开始计算，如果没有找到就直接返回0，没有返回负数的情况。
+
+
+    6、生成清空所有表的SQL
+
+    select CONCAT('TRUNCATE TABLE db1.',table_name,';') from information_schema.tables where TABLE_SCHEMA = 'db1';
