@@ -242,6 +242,8 @@
 
    > 停止： service mysqld stop
 
+   > 查索引： SHOW INDEX FROM <表名> [ FROM <数据库名>]
+
 ### mySQL设置global变量和session变量
 
    ```

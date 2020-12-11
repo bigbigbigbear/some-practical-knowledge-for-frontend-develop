@@ -3,7 +3,9 @@
 ### 常规操作
 
    * 新建目录A： mkdir A
+   * 新建带权限的目录：mkdir -m 777 A
    * 将目录A重命名为B： mv A B
+   * 新建文件： touch a.md
    * 将目录A移动到目录B下，并重命名为C： mv /A /B/C
    * 查看磁盘容量： df -h
    * 查看某个程序进程： ps -ef | grep java
@@ -19,12 +21,16 @@
    * 内存使用: free -m
    * 按文件名查找文件： find ./ -name '*bear*'
    * 查找文件： find ./ -name '*bear*' -depth -print 首先查找当前目录中的文件，然后再在其子目录中查找
+   * 查找当前目录下所有 c 代码文件，统计总行数: find . -type f -name "*.c" | xargs wc -l
    * 程序名搜索： whereis java
    * 查看系统命令是否存在及位置： which nginx
    * 查看unix版本：uname -r
    * 查看内存：free -mh
    * 拷贝远程文件到当前目录：scp remote@www.abc.com:/usr/local/sin.sh /home/administrator/
    * 拷贝远程文件夹到当前目录：scp -r remote@www.abc.com:/usr/local/sin.sh /home/administrator/
+   * 杀掉某个用户全部进程：pkill -u xxx    ||    killall -u xxx
+   * 打包压缩：tar -zcvf test.tar.gz test.log
+   * 解压：tar -zxvf test.tar.gz
 
 ### redis常用命令
    ```
