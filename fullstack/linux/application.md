@@ -18,3 +18,14 @@
     CMD   ==>> 所下达的指令为何
   ```
 
+2、配置~/.bashrc后下次登录shell无效问题
+  ```
+  vim ~/.profile
+  加入：
+  if [ -s ~/.bashrc ]; then
+      source ~/.bashrc;
+  fi
+  或
+  source ~/.bashrc
+  ```
+

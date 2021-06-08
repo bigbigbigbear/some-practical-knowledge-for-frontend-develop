@@ -3,6 +3,7 @@
 ### IntelliJ IDEA
 
 + 多选 alt + J
++ 多选相同的 ctrl + shift + alt + J
 + 关闭当前tab ctrl + f4
 + 格式化代码 ctrl + alt + L
 

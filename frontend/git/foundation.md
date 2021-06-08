@@ -19,3 +19,13 @@
         "commit": "git-cz"
        然后运行npm run commit
    ```
+
+### git stash
+
+   ```
+    git stash 贮藏
+    git stash list 贮藏列表
+    git stash clear 清除贮藏
+    git stash apply @stash{0} 恢复贮藏
+    git stash drop @stash{0} 删除贮藏
+   ```
