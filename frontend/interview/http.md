@@ -19,6 +19,9 @@
 * 服务器端收到SYN报文，回应一个SYN (SEQ=y)，ACK(ACK=x+1)报文，进入SYN_RCVD状态。
 * 客户端收到服务器端的SYN报文，回应一个ACK(ACK=y+1)报文，进入Established状态。
 
+   为什么要三次握手？
+   为了保证服务端能收接受到客户端的信息并能做出正确的应答而进行前两次(第一次和第二次)握手，为了保证客户端能够接收到服务端的信息并能做出正确的应答而进行后两次(第二次和第三次)握手。
+
    ![挥手](./../imges/wave.jpg)
 
 * 数据发送完毕后，客户端发送释放连接请求(FIN=1,seq=u）并进入FIN-WAIT-1状态。
@@ -50,3 +53,7 @@
 * 连接对象数量
   * TCP 只能是点对点，一对一的
   * UDP支持一对一，一对多，多对一和多对多的交互通信
+
+## [输入URL发生了什么](https://www.yuque.com/fcant/web-notes/igm6nb)
+
+   [详细说明](https://www.yuque.com/lichen-wgwan/zswpvg/epfz9b)
