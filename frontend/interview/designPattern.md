@@ -76,6 +76,6 @@ function CarFactory() {
 
 * 策略模式 Strategy Pattern
 * 迭代器模式 Iterator Pattern
-* 管擦者模式 Observer Pattern
+* 观察者模式 Observer Pattern
 * 中介者模式 Mediator Pattern
 * 访问者模式 Visitor Pattern
