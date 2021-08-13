@@ -3,5 +3,4 @@
 ## git命令
 
 * git pull = git fetch + git merge
-
-
+* git rebase / git merge

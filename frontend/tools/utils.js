@@ -55,3 +55,43 @@ function throttle(callback, delay=300, {immediate = false, trailing = false} = {
 
     return throttled
 }
+
+// 数组转树形
+function arrayToTree(list) {
+    let res = []
+    let map = {}
+    list.forEach((item, index) => {
+        if(map.hasOwnProperty(item["pId"])) {
+            map[item["pId"]].push(item)
+        }else {
+            map[item["pId"]] = [item]
+        }
+    })
+    // console.log(map)
+    res = findNodes(map["0"],map)
+    function findNodes(arr,map) {
+        arr.map((val,index) => {
+            if(map[val["id"]]) {
+                val["children"] = map[val["id"]]
+                findNodes(val["children"],map)
+            }
+        })
+
+        return arr
+    }
+
+    console.log(JSON.parse(JSON.stringify(res)))
+}
+
+let data =[
+    {id:1,name:'部门A',pId:0},
+    {id:2,name:'部门B',pId:0},
+    {id:3,name:'部门C',pId:1},
+    {id:4,name:'部门D',pId:1},
+    {id:5,name:'部门E',pId:2},
+    {id:6,name:'部门F',pId:3},
+    {id:7,name:'部门G',pId:2},
+    {id:8,name:'部门H',pId:4}
+]
+
+arrayToTree(data)

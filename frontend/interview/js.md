@@ -64,7 +64,7 @@
 * 深拷贝
 
   ```javascript
-    function deepClone(obj) {
+    function deepClone(obj, map) {
         if(typeof obj !== 'object') return
         let newObj = obj instanceof Array ? [] : {}
         for(let k in obj) {
