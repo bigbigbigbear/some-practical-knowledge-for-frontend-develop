@@ -55,3 +55,86 @@ function throttle(callback, delay=300, {immediate = false, trailing = false} = {
 
     return throttled
 }
+
+const simpleThrottle = function(callback, delay) {
+    let timer, last
+    var flag = false
+    return function() {
+        let context = this
+        let args = arguments
+        let now = +new Date()
+
+        // if(now - last > delay) {
+        //     last = now
+        //     callback.apply(context, args)
+        // }
+        if(flag) return
+        flag = true
+        timer = setTimeout(function() {
+            flag = false
+            callback.apply(context, args)
+        }, delay)
+    }
+}
+
+// 数组转树形
+const arrayToTree = function(list, rootId, { idName = 'id', pIdName = 'pid', childName = 'children' } = {}) {
+    if(!list instanceof Array) {
+        new Error('only Array')
+        return list
+    }
+    const resultMap = {}
+    const res = []
+
+    for(const item of list) {
+        const id = item[idName]
+        const pId = item[pIdName]
+
+        resultMap[id] = !resultMap[id] ? item : { ...item, ...resultMap[id] }
+        const itemTree = resultMap[id]
+        if(rootId === pId) {
+            res.push(itemTree)
+        }else {
+            if(!resultMap[pId]) {
+                resultMap[pId] = {}
+            }
+            if(!resultMap[pId][childName]) {
+                resultMap[pId][childName] = []
+            }
+
+            resultMap[pId][childName].push(itemTree)
+        }
+    }
+
+    return res
+}
+
+const arrayToTree2 = function(list) {
+    list.filter(item => {
+        item.children = list.filter(item1 => {
+            return item1.pId === item.id
+        })
+
+        return item.pId === 0
+    })
+}
+
+const deepClone = function(obj = {}) {
+    const map = new WeakMap()
+    function isObject(obj) {
+        return obj !== null && (typeof obj === 'function' || typeof obj === 'object')
+    }
+    function clone(obj) {
+        if(!isObject(obj)) return obj
+        let newObj = Array.isArray(obj) ? [] : {}
+        if(map.get(obj)) return map.get(obj)
+        map.set(obj, newObj)
+        for(const key in obj) {
+            newObj[key] = clone(obj[key])
+        }
+
+        return newObj
+    }
+
+    return clone(obj)
+}
