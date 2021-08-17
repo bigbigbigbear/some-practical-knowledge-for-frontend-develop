@@ -83,6 +83,52 @@ function arrayToTree(list) {
     console.log(JSON.parse(JSON.stringify(res)))
 }
 
+const arrayToTree2 = (list, rootId, { idName='id', pIdName='pId', childName='children' } = {}) => {
+    if(!Array.isArray(list)) {
+        new Error('not Array')
+        return
+    }
+
+    const resultMap = {}
+    const result = []
+
+    for(const item of list) {
+        const id = item[idName]
+        const pId = item[pIdName]
+        item[childName] = []
+
+        resultMap[id] = !resultMap[id] ? item : { ...item, ...resultMap[id] }
+
+        const treeItem = resultMap[id]
+        if(pId !== rootId) {
+            if(!resultMap[pId]) {
+                resultMap[pId] = {}
+            }
+
+            if(!resultMap[pId][childName]) {
+                resultMap[pId][childName] = []
+            }
+            resultMap[pId][childName].push(treeItem)
+        }else {
+            result.push(treeItem)
+        }
+
+        // console.log("===》》》 " + JSON.stringify(resultMap))
+    }
+    // console.log(list)
+    console.log(JSON.stringify(result))
+}
+
+function arrayToTree3(list) {
+    return list.filter(item => {
+        item.children = list.filter(item1 => {
+            return item.id === item1.pId
+        })
+
+        return item.pId === 0
+    })
+}
+
 let data =[
     {id:1,name:'部门A',pId:0},
     {id:2,name:'部门B',pId:0},

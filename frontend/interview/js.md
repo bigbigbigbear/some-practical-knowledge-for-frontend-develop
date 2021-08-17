@@ -64,12 +64,16 @@
 * 深拷贝
 
   ```javascript
-    function deepClone(obj, map) {
+    function deepClone(obj, map = new Map()) {
         if(typeof obj !== 'object') return
         let newObj = obj instanceof Array ? [] : {}
+        if(map.get(obj)) {
+          return map.get(obj)
+        }
+        map.set(obj, newObj)
         for(let k in obj) {
             if(obj.hasOwnProperty(k)) {
-                newObj[k] = typeof obj[k] === 'object' ? deepClone(obj[k]) : obj[k]
+                newObj[k] = typeof obj[k] === 'object' ? deepClone(obj[k], map) : obj[k]
             }
         }
         return newObj
@@ -81,3 +85,20 @@
   二维数据结构及以上的深拷贝方法建议使用：JSON.parse(JSON.stringify())；
 
   特别复杂的数据结构的深拷贝方法建议使用：Loadsh.cloneDeep()；
+
+## == && ===
+
+   "==="叫做严格运算符，严格运算符的运算规则如下：
+    (1)不同类型值
+    如果两个值的类型不同，直接返回false。
+    (2)同一类的原始类型值
+    同一类型的原始类型的值（数值、字符串、布尔值）比较时，值相同就返回true，值不同就返回false。
+    (3)同一类的复合类型值
+    两个复合类型（对象、数组、函数）的数据比较时，不是比较它们的值是否相等，而是比较它们是否指向同一个对象。
+    (4)undefined和null
+    undefined 和 null 与自身严格相等
+
+```javascript
+  null === null  //true
+  undefined === undefined  //true
+```
