@@ -56,6 +56,27 @@ function throttle(callback, delay=300, {immediate = false, trailing = false} = {
     return throttled
 }
 
+const simpleThrottle = function(callback, delay) {
+    let timer, last
+    var flag = false
+    return function() {
+        let context = this
+        let args = arguments
+        let now = +new Date()
+
+        // if(now - last > delay) {
+        //     last = now
+        //     callback.apply(context, args)
+        // }
+        if(flag) return
+        flag = true
+        timer = setTimeout(function() {
+            flag = false
+            callback.apply(context, args)
+        }, delay)
+    }
+}
+
 // 数组转树形
 function arrayToTree(list) {
     let res = []
@@ -119,10 +140,10 @@ const arrayToTree2 = (list, rootId, { idName='id', pIdName='pId', childName='chi
     console.log(JSON.stringify(result))
 }
 
-function arrayToTree3(list) {
-    return list.filter(item => {
+const arrayToTree3 = function(list) {
+    list.filter(item => {
         item.children = list.filter(item1 => {
-            return item.id === item1.pId
+            return item1.pId === item.id
         })
 
         return item.pId === 0
@@ -141,3 +162,41 @@ let data =[
 ]
 
 arrayToTree(data)
+const deepClone = function(obj = {}) {
+    const map = new WeakMap()
+    function isObject(obj) {
+        return obj !== null && (typeof obj === 'function' || typeof obj === 'object')
+    }
+    function clone(obj) {
+        if(!isObject(obj)) return obj
+        let newObj = Array.isArray(obj) ? [] : {}
+        if(map.get(obj)) return map.get(obj)
+        map.set(obj, newObj)
+        for(const key in obj) {
+            newObj[key] = clone(obj[key])
+        }
+
+        return newObj
+    }
+
+    return clone(obj)
+}
+
+
+const promiseAll = function(list) {
+    return new Promise((resolve, reject) => {
+        let result = []
+        let count = 0
+        for(const [i, k] of list) {
+            resolve(k).then(res => {
+                count++
+                result[i] = res
+                if(count === list.length) {
+                    resolve(result)
+                }
+            }, err => {
+                reject(err)
+            })
+        }
+    })
+}

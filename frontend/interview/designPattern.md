@@ -70,6 +70,27 @@ function CarFactory() {
 
 * 单例模式 Singleton Pattern
 
+   ```javascript
+  function Singleton() {
+      this.name = 'bear'
+  }
+
+  Singleton.getInstance = (function() {
+      var instance
+      return function() {
+          if(instance) {
+              return instance
+          }else {
+              instance = new Singleton()
+              return instance
+          }
+      }
+  })()
+
+  var bb = Singleton.getInstance()
+  // console.log(bb.name)
+   ```
+
 ### 行为型模式
 
 **用于识别对象之间常见的交互模式并加以实现，如此增加这些交互的灵活性**
