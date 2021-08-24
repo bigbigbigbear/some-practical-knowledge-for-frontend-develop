@@ -57,3 +57,10 @@
 ## [输入URL发生了什么](https://www.yuque.com/fcant/web-notes/igm6nb)
 
    [详细说明](https://www.yuque.com/lichen-wgwan/zswpvg/epfz9b)
+
+## xss/CSRF
+
+  XSS：跨站脚本攻击，评论区，解决：输入过滤，httponly，转义符号
+  CSRF：跨站请求伪造，钓鱼网站，解决：token
+
+## [强制缓存、协商缓存](https://juejin.cn/post/6844903838768431118)
