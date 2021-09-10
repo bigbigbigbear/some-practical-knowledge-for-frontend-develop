@@ -77,6 +77,24 @@ const simpleThrottle = function(callback, delay) {
     }
 }
 
+const arrayToTree5 = function(data, pid) {
+    let res = []
+
+    function getChildren(data, res, pid) {
+        for(const k of data) {
+            if(k.pId === pid) {
+                const item = { ...k, children: [] }
+                res.push(item)
+                getChildren(data, item.children, item.id)
+            }
+        }
+    }
+
+    getChildren(data, res, pid)
+
+    return res
+}
+
 // 数组转树形
 function arrayToTree(list) {
     let res = []
@@ -160,6 +178,8 @@ let data =[
     {id:7,name:'部门G',pId:2},
     {id:8,name:'部门H',pId:4}
 ]
+
+console.log('tree ===>>> :', JSON.stringify(arrayToTree5(data, 0)))
 
 // arrayToTree(data)
 const deepClone = function(obj = {}) {
@@ -345,8 +365,14 @@ function fib3(n) {
     }, 0)
 }
 
-console.log(fib0(9))
-console.log(fib(9))
-console.log(fib1(9))
-console.log(fib2(9))
-console.log(fib3(9))
+// console.log(fib0(9))
+// console.log(fib(9))
+// console.log(fib1(9))
+// console.log(fib2(9))
+// console.log(fib3(9))
+
+// let arr6 = [4,7,3,9,34,76,23,55,43,57,34]
+// arr6.sort((a,b) => b-a)
+// console.log(arr6)
+
+
